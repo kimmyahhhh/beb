@@ -4,798 +4,1063 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Am I Pretty and Cute? âœ¨</title>
+<title>Am I Pretty and Cute? ✨</title>
 
 <style>
-    :root {
-        --bg: #f3eee7;
-        --paper: #fffaf4;
-        --ink: #40363a;
-        --muted: #817276;
 
-        --plum: #76546b;
-        --mauve: #a98291;
-        --sage: #8fa28d;
-        --butter: #d8bd83;
-        --dust: #c7aeb4;
+:root {
+    --bg: #f3eee7;
+    --paper: #fffaf4;
+    --ink: #40363a;
+    --muted: #817276;
 
-        --sticker: #fffdf8;
+    --plum: #76546b;
+    --mauve: #a98291;
+    --sage: #8fa28d;
+    --butter: #d8bd83;
+
+    --sticker: #fffdf8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(216,189,131,.20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(169,130,145,.16),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(143,162,141,.15),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--ink);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND PHOTO COLLAGE
+========================================= */
+
+.collage {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.collage img {
+    position: absolute;
+
+    width: 120px;
+    height: 150px;
+
+    object-fit: contain;
+
+    background: transparent;
+
+    border: none;
+    padding: 0;
+    border-radius: 0;
+
+    opacity: .72;
+
+    /*
+       Sticker outline.
+       This follows the transparent
+       edges of the PNG.
+    */
+
+    filter:
+        drop-shadow(3px 0 0 var(--sticker))
+        drop-shadow(-3px 0 0 var(--sticker))
+        drop-shadow(0 3px 0 var(--sticker))
+        drop-shadow(0 -3px 0 var(--sticker))
+        drop-shadow(2px 2px 0 var(--sticker))
+        drop-shadow(-2px 2px 0 var(--sticker))
+        drop-shadow(2px -2px 0 var(--sticker))
+        drop-shadow(-2px -2px 0 var(--sticker))
+        drop-shadow(4px 6px 8px rgba(63,49,54,.15));
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+
+/* =========================================
+   COLLAGE POSITIONS
+========================================= */
+
+.collage img:nth-child(1) {
+    left: 2%;
+    top: 5%;
+    transform: rotate(-12deg);
+}
+
+.collage img:nth-child(2) {
+    left: 14%;
+    top: 18%;
+    transform: rotate(8deg);
+}
+
+.collage img:nth-child(3) {
+    left: 27%;
+    top: 3%;
+    transform: rotate(-5deg);
+}
+
+.collage img:nth-child(4) {
+    left: 42%;
+    top: 13%;
+    transform: rotate(11deg);
+}
+
+.collage img:nth-child(5) {
+    left: 58%;
+    top: 4%;
+    transform: rotate(-8deg);
+}
+
+.collage img:nth-child(6) {
+    left: 75%;
+    top: 12%;
+    transform: rotate(9deg);
+}
+
+.collage img:nth-child(7) {
+    left: 88%;
+    top: 4%;
+    transform: rotate(-10deg);
+}
+
+.collage img:nth-child(8) {
+    left: -3%;
+    top: 35%;
+    transform: rotate(7deg);
+}
+
+.collage img:nth-child(9) {
+    left: 11%;
+    top: 48%;
+    transform: rotate(-9deg);
+}
+
+.collage img:nth-child(10) {
+    left: 25%;
+    top: 38%;
+    transform: rotate(12deg);
+}
+
+.collage img:nth-child(11) {
+    left: 73%;
+    top: 39%;
+    transform: rotate(-7deg);
+}
+
+.collage img:nth-child(12) {
+    left: 89%;
+    top: 34%;
+    transform: rotate(8deg);
+}
+
+.collage img:nth-child(13) {
+    left: 0%;
+    top: 68%;
+    transform: rotate(-8deg);
+}
+
+.collage img:nth-child(14) {
+    left: 15%;
+    top: 76%;
+    transform: rotate(10deg);
+}
+
+.collage img:nth-child(15) {
+    left: 29%;
+    top: 67%;
+    transform: rotate(-5deg);
+}
+
+.collage img:nth-child(16) {
+    left: 72%;
+    top: 68%;
+    transform: rotate(7deg);
+}
+
+.collage img:nth-child(17) {
+    left: 88%;
+    top: 72%;
+    transform: rotate(-11deg);
+}
+
+.collage img:nth-child(18) {
+    left: 6%;
+    top: 88%;
+    transform: rotate(5deg);
+}
+
+.collage img:nth-child(19) {
+    left: 19%;
+    top: 91%;
+    transform: rotate(-8deg);
+}
+
+.collage img:nth-child(20) {
+    left: 34%;
+    top: 84%;
+    transform: rotate(9deg);
+}
+
+.collage img:nth-child(21) {
+    left: 51%;
+    top: 90%;
+    transform: rotate(-10deg);
+}
+
+.collage img:nth-child(22) {
+    left: 66%;
+    top: 83%;
+    transform: rotate(6deg);
+}
+
+.collage img:nth-child(23) {
+    left: 91%;
+    top: 90%;
+    transform: rotate(-7deg);
+}
+
+.collage img:nth-child(24) {
+    left: 4%;
+    top: 22%;
+    transform: rotate(14deg);
+}
+
+.collage img:nth-child(25) {
+    left: 91%;
+    top: 23%;
+    transform: rotate(-13deg);
+}
+
+.collage img:nth-child(26) {
+    left: 20%;
+    top: 30%;
+    transform: rotate(6deg);
+}
+
+.collage img:nth-child(27) {
+    left: 82%;
+    top: 55%;
+    transform: rotate(10deg);
+}
+
+.collage img:nth-child(28) {
+    left: 36%;
+    top: 57%;
+    transform: rotate(-9deg);
+}
+
+.collage img:nth-child(29) {
+    left: 60%;
+    top: 59%;
+    transform: rotate(8deg);
+}
+
+.collage img:nth-child(30) {
+    left: 45%;
+    top: 78%;
+    transform: rotate(-6deg);
+}
+
+.collage img:nth-child(31) {
+    left: 55%;
+    top: 25%;
+    transform: rotate(12deg);
+}
+
+.collage img:nth-child(32) {
+    left: 68%;
+    top: 30%;
+    transform: rotate(-9deg);
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 30px 16px;
+}
+
+
+.card {
+    width: min(470px, 94vw);
+
+    background:
+        rgba(255,250,244,.93);
+
+    border:
+        1px solid rgba(118,84,107,.14);
+
+    border-radius: 30px;
+
+    padding: 30px 25px 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(76,57,64,.18),
+        0 5px 20px rgba(76,57,64,.10);
+
+    backdrop-filter: blur(12px);
+
+    animation:
+        cardIn .8s ease;
+}
+
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.96);
     }
 
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "Trebuchet MS", Arial, sans-serif;
-        background:
-            radial-gradient(circle at 20% 20%, rgba(216,189,131,.20), transparent 25%),
-            radial-gradient(circle at 80% 30%, rgba(169,130,145,.16), transparent 25%),
-            radial-gradient(circle at 50% 90%, rgba(143,162,141,.15), transparent 30%),
-            var(--bg);
-        color: var(--ink);
-        overflow-x: hidden;
-    }
-
-    /* =========================
-       BACKGROUND COLLAGE
-    ========================= */
-
-    .collage {
-        position: fixed;
-        inset: 0;
-        overflow: hidden;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .collage img {
-        position: absolute;
-
-        width: 120px;
-        height: 150px;
-
-        object-fit: contain;
-
-        background: transparent;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-
-        opacity: .82;
-
-        /*
-            White sticker outline around transparent PNG.
-            Works best when the PNG already has
-            a transparent background.
-        */
-        filter:
-            drop-shadow(3px 0 0 var(--sticker))
-            drop-shadow(-3px 0 0 var(--sticker))
-            drop-shadow(0 3px 0 var(--sticker))
-            drop-shadow(0 -3px 0 var(--sticker))
-            drop-shadow(2px 2px 0 var(--sticker))
-            drop-shadow(-2px 2px 0 var(--sticker))
-            drop-shadow(2px -2px 0 var(--sticker))
-            drop-shadow(-2px -2px 0 var(--sticker))
-            drop-shadow(4px 6px 8px rgba(63,49,54,.16));
-
-        transition:
-            transform .3s ease,
-            opacity .3s ease;
-    }
-
-    .collage img:hover {
+    to {
         opacity: 1;
-        transform: scale(1.08) rotate(0deg) !important;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.tiny {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 8px;
+}
+
+
+h1 {
+    margin:
+        0 0 12px;
+
+    color: var(--plum);
+
+    font-size:
+        clamp(28px, 7vw, 40px);
+
+    line-height: 1.1;
+}
+
+
+.subtitle {
+    margin:
+        0 0 20px;
+
+    font-size: 15px;
+
+    color: var(--muted);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   MAIN STICKER
+========================================= */
+
+.photo-wrap {
+    width: 220px;
+    height: 220px;
+
+    margin:
+        5px auto 22px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+.main-photo {
+    width: 205px;
+    height: 205px;
+
+    object-fit: contain;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    padding: 0;
+
+    /*
+       Thick white sticker border
+    */
+
+    filter:
+        drop-shadow(4px 0 0 var(--sticker))
+        drop-shadow(-4px 0 0 var(--sticker))
+        drop-shadow(0 4px 0 var(--sticker))
+        drop-shadow(0 -4px 0 var(--sticker))
+        drop-shadow(3px 3px 0 var(--sticker))
+        drop-shadow(-3px 3px 0 var(--sticker))
+        drop-shadow(3px -3px 0 var(--sticker))
+        drop-shadow(-3px -3px 0 var(--sticker))
+        drop-shadow(0 12px 18px rgba(63,49,54,.20));
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+
+.main-photo.changing {
+    opacity: 0;
+
+    transform:
+        scale(.94)
+        rotate(-4deg);
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+    min-height: 24px;
+
+    color: var(--plum);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+    transition:
+        .25s ease;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.buttons {
+    position: relative;
+
+    min-height: 125px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+button {
+    border: none;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    padding:
+        14px 25px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        opacity .25s ease,
+        font-size .25s ease,
+        padding .25s ease;
+}
+
+
+#yesBtn {
+
+    background:
+        var(--plum);
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px
+        rgba(118,84,107,.25);
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+#yesBtn:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 12px 25px
+        rgba(118,84,107,.32);
+}
+
+
+#noBtn {
+
+    background:
+        #e8d9dd;
+
+    color:
+        var(--plum);
+
+    position:
+        relative;
+
+    z-index: 4;
+
+    touch-action:
+        none;
+}
+
+
+#noBtn:hover {
+
+    box-shadow:
+        0 7px 15px
+        rgba(118,84,107,.15);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    margin-top:
+        8px;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #9a8a8e;
+}
+
+
+/* =========================================
+   SUCCESS PAGE
+========================================= */
+
+.success {
+    display: none;
+
+    text-align: center;
+}
+
+
+.success.show {
+
+    display: block;
+
+    animation:
+        successIn .7s ease;
+}
+
+
+@keyframes successIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.92);
     }
 
-    /* Individual sticker positions */
+    to {
 
-    .collage img:nth-child(1) {
-        left: 2%;
-        top: 5%;
-        transform: rotate(-12deg);
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+.success-title {
+
+    font-size:
+        14px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        var(--mauve);
+
+    font-weight:
+        bold;
+
+    margin-bottom:
+        5px;
+}
+
+
+.success h2 {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--plum);
+
+    font-size:
+        32px;
+}
+
+
+.success p {
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+    margin:
+        6px 0;
+}
+
+
+/* =========================================
+   SUCCESS STICKER
+========================================= */
+
+.success-photo-wrap {
+
+    width:
+        250px;
+
+    height:
+        250px;
+
+    margin:
+        15px auto;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+}
+
+
+.success-photo {
+
+    width:
+        230px;
+
+    height:
+        230px;
+
+    object-fit:
+        contain;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    border-radius:
+        0;
+
+    filter:
+        drop-shadow(4px 0 0 var(--sticker))
+        drop-shadow(-4px 0 0 var(--sticker))
+        drop-shadow(0 4px 0 var(--sticker))
+        drop-shadow(0 -4px 0 var(--sticker))
+        drop-shadow(3px 3px 0 var(--sticker))
+        drop-shadow(-3px 3px 0 var(--sticker))
+        drop-shadow(3px -3px 0 var(--sticker))
+        drop-shadow(-3px -3px 0 var(--sticker))
+        drop-shadow(0 12px 20px rgba(63,49,54,.20));
+
+    animation:
+        stickerPop .7s ease;
+}
+
+
+@keyframes stickerPop {
+
+    0% {
+
+        transform:
+            scale(.7)
+            rotate(-10deg);
+
+        opacity:
+            0;
     }
 
-    .collage img:nth-child(2) {
-        left: 14%;
-        top: 18%;
-        transform: rotate(8deg);
+    70% {
+
+        transform:
+            scale(1.08)
+            rotate(4deg);
     }
 
-    .collage img:nth-child(3) {
-        left: 27%;
-        top: 3%;
-        transform: rotate(-5deg);
+    100% {
+
+        transform:
+            scale(1)
+            rotate(0);
+
+        opacity:
+            1;
+    }
+}
+
+
+.friendship {
+
+    display:
+        inline-block;
+
+    margin-top:
+        12px;
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        999px;
+
+    background:
+        #eee2d0;
+
+    color:
+        var(--plum);
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================
+   FLOATING DECORATIONS
+========================================= */
+
+.float {
+
+    position:
+        fixed;
+
+    pointer-events:
+        none;
+
+    z-index:
+        1;
+
+    opacity:
+        .55;
+
+    animation:
+        floatAround 6s
+        ease-in-out
+        infinite;
+}
+
+
+.float:nth-child(1) {
+
+    left:
+        8%;
+
+    top:
+        20%;
+
+    animation-delay:
+        0s;
+}
+
+
+.float:nth-child(2) {
+
+    right:
+        9%;
+
+    top:
+        17%;
+
+    animation-delay:
+        1s;
+}
+
+
+.float:nth-child(3) {
+
+    left:
+        7%;
+
+    bottom:
+        16%;
+
+    animation-delay:
+        2s;
+}
+
+
+.float:nth-child(4) {
+
+    right:
+        8%;
+
+    bottom:
+        18%;
+
+    animation-delay:
+        3s;
+}
+
+
+@keyframes floatAround {
+
+    0%, 100% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
     }
 
-    .collage img:nth-child(4) {
-        left: 42%;
-        top: 13%;
-        transform: rotate(11deg);
+    50% {
+
+        transform:
+            translateY(-15px)
+            rotate(8deg);
     }
-
-    .collage img:nth-child(5) {
-        left: 58%;
-        top: 4%;
-        transform: rotate(-8deg);
-    }
-
-    .collage img:nth-child(6) {
-        left: 75%;
-        top: 12%;
-        transform: rotate(9deg);
-    }
-
-    .collage img:nth-child(7) {
-        left: 88%;
-        top: 4%;
-        transform: rotate(-10deg);
-    }
-
-    .collage img:nth-child(8) {
-        left: -3%;
-        top: 35%;
-        transform: rotate(7deg);
-    }
-
-    .collage img:nth-child(9) {
-        left: 11%;
-        top: 48%;
-        transform: rotate(-9deg);
-    }
-
-    .collage img:nth-child(10) {
-        left: 25%;
-        top: 38%;
-        transform: rotate(12deg);
-    }
-
-    .collage img:nth-child(11) {
-        left: 73%;
-        top: 39%;
-        transform: rotate(-7deg);
-    }
-
-    .collage img:nth-child(12) {
-        left: 89%;
-        top: 34%;
-        transform: rotate(8deg);
-    }
-
-    .collage img:nth-child(13) {
-        left: 0%;
-        top: 68%;
-        transform: rotate(-8deg);
-    }
-
-    .collage img:nth-child(14) {
-        left: 15%;
-        top: 76%;
-        transform: rotate(10deg);
-    }
-
-    .collage img:nth-child(15) {
-        left: 29%;
-        top: 67%;
-        transform: rotate(-5deg);
-    }
-
-    .collage img:nth-child(16) {
-        left: 72%;
-        top: 68%;
-        transform: rotate(7deg);
-    }
-
-    .collage img:nth-child(17) {
-        left: 88%;
-        top: 72%;
-        transform: rotate(-11deg);
-    }
-
-    .collage img:nth-child(18) {
-        left: 6%;
-        top: 88%;
-        transform: rotate(5deg);
-    }
-
-    .collage img:nth-child(19) {
-        left: 19%;
-        top: 91%;
-        transform: rotate(-8deg);
-    }
-
-    .collage img:nth-child(20) {
-        left: 34%;
-        top: 84%;
-        transform: rotate(9deg);
-    }
-
-    .collage img:nth-child(21) {
-        left: 51%;
-        top: 90%;
-        transform: rotate(-10deg);
-    }
-
-    .collage img:nth-child(22) {
-        left: 66%;
-        top: 83%;
-        transform: rotate(6deg);
-    }
-
-    .collage img:nth-child(23) {
-        left: 91%;
-        top: 90%;
-        transform: rotate(-7deg);
-    }
-
-    .collage img:nth-child(24) {
-        left: 4%;
-        top: 22%;
-        transform: rotate(14deg);
-    }
-
-    .collage img:nth-child(25) {
-        left: 91%;
-        top: 23%;
-        transform: rotate(-13deg);
-    }
-
-    .collage img:nth-child(26) {
-        left: 20%;
-        top: 30%;
-        transform: rotate(6deg);
-    }
-
-    .collage img:nth-child(27) {
-        left: 82%;
-        top: 55%;
-        transform: rotate(10deg);
-    }
-
-    .collage img:nth-child(28) {
-        left: 36%;
-        top: 57%;
-        transform: rotate(-9deg);
-    }
-
-    .collage img:nth-child(29) {
-        left: 60%;
-        top: 59%;
-        transform: rotate(8deg);
-    }
-
-    .collage img:nth-child(30) {
-        left: 45%;
-        top: 78%;
-        transform: rotate(-6deg);
-    }
-
-    .collage img:nth-child(31) {
-        left: 55%;
-        top: 25%;
-        transform: rotate(12deg);
-    }
-
-    .collage img:nth-child(32) {
-        left: 68%;
-        top: 30%;
-        transform: rotate(-9deg);
-    }
+}
 
 
-    /* =========================
-       MAIN CARD
-    ========================= */
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
 
     .page {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        position: relative;
-        z-index: 5;
-
-        padding: 30px 16px;
+        padding:
+            20px 12px;
     }
+
 
     .card {
-        width: min(470px, 94vw);
 
-        background: rgba(255,250,244,.91);
-
-        border: 1px solid rgba(118,84,107,.14);
-
-        border-radius: 30px;
-
-        padding: 30px 25px 28px;
-
-        text-align: center;
-
-        box-shadow:
-            0 25px 70px rgba(76,57,64,.18),
-            0 5px 20px rgba(76,57,64,.10);
-
-        backdrop-filter: blur(12px);
-
-        animation: cardIn .8s ease;
-    }
-
-    @keyframes cardIn {
-        from {
-            opacity: 0;
-            transform: translateY(25px) scale(.96);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        padding:
+            25px 18px 24px;
     }
 
 
-    /* =========================
-       TOP LABEL
-    ========================= */
+    .collage img {
 
-    .tiny {
-        font-size: 12px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 8px;
+        width:
+            90px;
+
+        height:
+            115px;
+
+        opacity:
+            .55;
     }
 
-    h1 {
-        margin: 0 0 12px;
-
-        color: var(--plum);
-
-        font-size: clamp(28px, 7vw, 40px);
-
-        line-height: 1.1;
-    }
-
-    .subtitle {
-        margin: 0 0 20px;
-
-        font-size: 15px;
-
-        color: var(--muted);
-
-        line-height: 1.5;
-    }
-
-
-    /* =========================
-       MAIN STICKER PHOTO
-    ========================= */
 
     .photo-wrap {
-        width: 220px;
-        height: 220px;
 
-        margin: 5px auto 22px;
+        width:
+            200px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        position: relative;
+        height:
+            200px;
     }
+
 
     .main-photo {
-        width: 205px;
-        height: 205px;
 
-        object-fit: contain;
+        width:
+            185px;
 
-        background: transparent;
-
-        border: none;
-        border-radius: 0;
-
-        padding: 0;
-
-        filter:
-            drop-shadow(4px 0 0 var(--sticker))
-            drop-shadow(-4px 0 0 var(--sticker))
-            drop-shadow(0 4px 0 var(--sticker))
-            drop-shadow(0 -4px 0 var(--sticker))
-            drop-shadow(3px 3px 0 var(--sticker))
-            drop-shadow(-3px 3px 0 var(--sticker))
-            drop-shadow(3px -3px 0 var(--sticker))
-            drop-shadow(-3px -3px 0 var(--sticker))
-            drop-shadow(0 12px 18px rgba(63,49,54,.20));
-
-        transition:
-            opacity .35s ease,
-            transform .35s ease;
+        height:
+            185px;
     }
 
-    .main-photo.changing {
-        opacity: 0;
-        transform: scale(.94) rotate(-4deg);
-    }
-
-
-    /* =========================
-       MESSAGE
-    ========================= */
-
-    .message {
-        min-height: 24px;
-
-        color: var(--plum);
-
-        font-size: 16px;
-        font-weight: bold;
-
-        margin-bottom: 18px;
-
-        transition: .25s ease;
-    }
-
-
-    /* =========================
-       BUTTONS
-    ========================= */
 
     .buttons {
-        position: relative;
 
-        min-height: 125px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
+        min-height:
+            140px;
     }
+
 
     button {
-        border: none;
 
-        font-family: inherit;
-        font-size: 16px;
-        font-weight: bold;
-
-        padding: 14px 25px;
-
-        border-radius: 999px;
-
-        cursor: pointer;
-
-        transition:
-            transform .25s ease,
-            box-shadow .25s ease,
-            opacity .25s ease,
-            font-size .25s ease,
-            padding .25s ease;
+        padding:
+            13px 21px;
     }
 
-    #yesBtn {
-        background: var(--plum);
-        color: white;
-
-        box-shadow:
-            0 8px 18px rgba(118,84,107,.25);
-
-        position: relative;
-
-        z-index: 3;
-    }
-
-    #yesBtn:hover {
-        transform: translateY(-3px) scale(1.04);
-
-        box-shadow:
-            0 12px 25px rgba(118,84,107,.32);
-    }
-
-    #noBtn {
-        background: #e8d9dd;
-        color: var(--plum);
-
-        position: relative;
-
-        z-index: 4;
-
-        touch-action: none;
-    }
-
-    #noBtn:hover {
-        box-shadow:
-            0 7px 15px rgba(118,84,107,.15);
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    .footer {
-        margin-top: 8px;
-
-        font-size: 11px;
-
-        letter-spacing: 1px;
-
-        color: #9a8a8e;
-    }
-
-
-    /* =========================
-       SUCCESS SCREEN
-    ========================= */
-
-    .success {
-        display: none;
-
-        text-align: center;
-    }
-
-    .success.show {
-        display: block;
-
-        animation: successIn .7s ease;
-    }
-
-    @keyframes successIn {
-        from {
-            opacity: 0;
-            transform: scale(.92);
-        }
-
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .success-title {
-        font-size: 14px;
-
-        letter-spacing: 3px;
-
-        color: var(--mauve);
-
-        font-weight: bold;
-
-        margin-bottom: 5px;
-    }
-
-    .success h2 {
-        margin: 0 0 12px;
-
-        color: var(--plum);
-
-        font-size: 32px;
-    }
-
-    .success p {
-        color: var(--muted);
-
-        line-height: 1.6;
-
-        margin: 6px 0;
-    }
 
     .success-photo-wrap {
-        width: 250px;
-        height: 250px;
 
-        margin: 15px auto;
+        width:
+            220px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height:
+            220px;
     }
+
 
     .success-photo {
-        width: 230px;
-        height: 230px;
 
-        object-fit: contain;
+        width:
+            205px;
 
-        background: transparent;
-
-        border: none;
-        border-radius: 0;
-
-        filter:
-            drop-shadow(4px 0 0 var(--sticker))
-            drop-shadow(-4px 0 0 var(--sticker))
-            drop-shadow(0 4px 0 var(--sticker))
-            drop-shadow(0 -4px 0 var(--sticker))
-            drop-shadow(3px 3px 0 var(--sticker))
-            drop-shadow(-3px 3px 0 var(--sticker))
-            drop-shadow(3px -3px 0 var(--sticker))
-            drop-shadow(-3px -3px 0 var(--sticker))
-            drop-shadow(0 12px 20px rgba(63,49,54,.20));
-
-        animation: stickerPop .7s ease;
+        height:
+            205px;
     }
 
-    @keyframes stickerPop {
-        0% {
-            transform: scale(.7) rotate(-10deg);
-            opacity: 0;
-        }
+}
 
-        70% {
-            transform: scale(1.08) rotate(4deg);
-        }
-
-        100% {
-            transform: scale(1) rotate(0);
-            opacity: 1;
-        }
-    }
-
-    .friendship {
-        display: inline-block;
-
-        margin-top: 12px;
-
-        padding: 8px 14px;
-
-        border-radius: 999px;
-
-        background: #eee2d0;
-
-        color: var(--plum);
-
-        font-size: 12px;
-    }
-
-
-    /* =========================
-       FLOATING DECORATIONS
-    ========================= */
-
-    .float {
-        position: fixed;
-
-        pointer-events: none;
-
-        z-index: 1;
-
-        opacity: .55;
-
-        animation: floatAround 6s ease-in-out infinite;
-    }
-
-    .float:nth-child(1) {
-        left: 8%;
-        top: 20%;
-        animation-delay: 0s;
-    }
-
-    .float:nth-child(2) {
-        right: 9%;
-        top: 17%;
-        animation-delay: 1s;
-    }
-
-    .float:nth-child(3) {
-        left: 7%;
-        bottom: 16%;
-        animation-delay: 2s;
-    }
-
-    .float:nth-child(4) {
-        right: 8%;
-        bottom: 18%;
-        animation-delay: 3s;
-    }
-
-    @keyframes floatAround {
-        0%, 100% {
-            transform: translateY(0) rotate(-5deg);
-        }
-
-        50% {
-            transform: translateY(-15px) rotate(8deg);
-        }
-    }
-
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-        .page {
-            padding: 20px 12px;
-        }
-
-        .card {
-            padding: 25px 18px 24px;
-        }
-
-        .collage img {
-            width: 90px;
-            height: 115px;
-            opacity: .65;
-        }
-
-        .photo-wrap {
-            width: 200px;
-            height: 200px;
-        }
-
-        .main-photo {
-            width: 185px;
-            height: 185px;
-        }
-
-        .buttons {
-            min-height: 140px;
-        }
-
-        button {
-            padding: 13px 21px;
-        }
-
-        .success-photo-wrap {
-            width: 220px;
-            height: 220px;
-        }
-
-        .success-photo {
-            width: 205px;
-            height: 205px;
-        }
-    }
 </style>
 </head>
 
 
 <body>
 
-<!-- =========================
-     BACKGROUND STICKERS
-========================= -->
 
-<div class="collage" id="collage"></div>
+<!-- ======================================
+     BACKGROUND COLLAGE
+====================================== -->
 
-
-<!-- Floating decorations -->
-
-<div class="float">â™¡</div>
-<div class="float">âœ¦</div>
-<div class="float">â™¡</div>
-<div class="float">âœ§</div>
+<div
+    class="collage"
+    id="collage">
+</div>
 
 
-<!-- =========================
-     MAIN PAGE
-========================= -->
+<!-- ======================================
+     DECORATIONS
+====================================== -->
+
+<div class="float">♡</div>
+<div class="float">✦</div>
+<div class="float">♡</div>
+<div class="float">✧</div>
+
+
+<!-- ======================================
+     MAIN CONTENT
+====================================== -->
 
 <main class="page">
 
-    <section class="card" id="mainCard">
+
+    <section
+        class="card"
+        id="mainCard">
+
 
         <div class="tiny">
-            A very serious question âœ¦
+            A very serious question ✦
         </div>
+
 
         <h1>
             Am I pretty<br>
-            and cute? âœ¨
+            and cute? ✨
         </h1>
 
+
         <p class="subtitle">
-            I already know the answer. ðŸ˜Œ
+            I already know the answer. 😌
         </p>
 
 
-        <!-- Main rotating sticker -->
+        <!-- MAIN PHOTO -->
 
         <div class="photo-wrap">
 
@@ -809,54 +1074,69 @@
         </div>
 
 
-        <!-- Message changes when NO is clicked -->
+        <!-- MESSAGE -->
 
         <div
             class="message"
-            id="message"
-        >
-            Obviously. ðŸ’…
+            id="message">
+
+            Obviously. 💅
+
         </div>
 
 
-        <!-- Buttons -->
+        <!-- BUTTONS -->
 
-        <div class="buttons" id="buttons">
+        <div
+            class="buttons"
+            id="buttons">
 
-            <button id="yesBtn">
-                YES âœ¨
+
+            <button
+                id="yesBtn">
+
+                YES ✨
+
             </button>
 
-            <button id="noBtn">
-                NO ðŸ¤¨
+
+            <button
+                id="noBtn">
+
+                NO 🤨
+
             </button>
+
 
         </div>
 
 
         <div class="footer">
-            choose wisely, comedian â™¡
+            choose wisely, comedian ♡
         </div>
+
 
     </section>
 
 
-    <!-- =========================
+    <!-- ==================================
          SUCCESS
-    ========================= -->
+    ================================== -->
 
     <section
         class="card success"
-        id="success"
-    >
+        id="success">
+
 
         <div class="success-title">
-            AS EXPECTED âœ¦
+            AS EXPECTED ✦
         </div>
 
+
         <h2>
-            See? We agree. ðŸ˜Œâœ¨
+            See? We agree. 😌✨
         </h2>
+
 
         <div class="success-photo-wrap">
 
@@ -869,459 +1149,758 @@
 
         </div>
 
+
         <p>
             I knew you were just messing with me.
         </p>
 
+
         <p>
-            Obviously I'm pretty and cute. ðŸ’…
+            Obviously I'm pretty and cute. 💅
         </p>
 
+
         <div class="friendship">
-            âœ¦ Your friendship privileges remain intact âœ¦
+
+            ✦ Your friendship privileges
+            remain intact ✦
+
         </div>
 
+
     </section>
+
 
 </main>
 
 
 <script>
 
-    /* =========================================
-       CREATE 32 PNG STICKERS
-    ========================================= */
 
-    const collage = document.getElementById("collage");
+/* =========================================
+   IMPORTANT:
+   THESE ARE THE PNG FILES THAT ACTUALLY
+   EXIST IN YOUR GITHUB REPOSITORY.
+   
+   22.png and 27.png are NOT included
+   because they aren't in the screenshot.
+========================================= */
 
-    for (let i = 1; i <= 32; i++) {
+const availablePhotos = [
 
-        const img = document.createElement("img");
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
 
-        img.src = `${i}.png`;
+    // 22 is missing
 
-        img.alt = `Sticker photo ${i}`;
+    23,
+    24,
+    25,
+    26,
 
-        img.loading = "lazy";
+    // 27 is missing
 
-        collage.appendChild(img);
-    }
+    28,
+    29,
+    30,
+    31,
+    32
 
-
-    /* =========================================
-       MAIN PHOTO
-    ========================================= */
-
-    const mainPhoto =
-        document.getElementById("mainPhoto");
-
-    let photoNumber =
-        Math.floor(Math.random() * 32) + 1;
-
-
-    function changeMainPhoto() {
-
-        mainPhoto.classList.add("changing");
-
-        setTimeout(() => {
-
-            photoNumber =
-                Math.floor(Math.random() * 32) + 1;
-
-            mainPhoto.src =
-                `${photoNumber}.png`;
-
-            mainPhoto.classList.remove("changing");
-
-        }, 250);
-    }
-
-
-    /* Change photo every 5 seconds */
-
-    setInterval(changeMainPhoto, 5000);
+];
 
 
-    /* =========================================
-       BUTTONS
-    ========================================= */
+/* =========================================
+   CREATE BACKGROUND STICKERS
+========================================= */
 
-    const yesBtn =
-        document.getElementById("yesBtn");
-
-    const noBtn =
-        document.getElementById("noBtn");
-
-    const message =
-        document.getElementById("message");
-
-    const buttons =
-        document.getElementById("buttons");
-
-    const mainCard =
-        document.getElementById("mainCard");
-
-    const success =
-        document.getElementById("success");
-
-    const successPhoto =
-        document.getElementById("successPhoto");
+const collage =
+    document.getElementById("collage");
 
 
-    /* =========================================
-       NO BUTTON TEXT
-    ========================================= */
+/*
+    We create 32 sticker positions.
 
-    const noTexts = [
+    Since 22.png and 27.png are missing,
+    we randomly reuse photos from the
+    available list.
+*/
 
-        "NO ðŸ¤¨",
+for (
+    let i = 0;
+    i < 32;
+    i++
+) {
 
-        "Hmm...",
+    const img =
+        document.createElement("img");
 
-        "Really?",
 
-        "Interesting.",
+    /*
+        Pick a random available PNG.
+    */
 
-        "Bold choice.",
+    const randomIndex =
+        Math.floor(
+            Math.random()
+            *
+            availablePhotos.length
+        );
 
-        "You sure?",
 
-        "Okay... ðŸ¤¨",
+    const photoNumber =
+        availablePhotos[randomIndex];
 
-        "Noted.",
 
-        "Sure bestie.",
+    img.src =
+        `${photoNumber}.png`;
 
-        "Whatever ðŸ˜Œ",
 
-        "Nice try.",
+    img.alt =
+        `Photo sticker ${photoNumber}`;
 
-        "Moving on âœ¨"
 
+    img.loading =
+        "lazy";
+
+
+    collage.appendChild(img);
+
+}
+
+
+/* =========================================
+   MAIN PHOTO
+========================================= */
+
+const mainPhoto =
+    document.getElementById(
+        "mainPhoto"
+    );
+
+
+let currentPhoto;
+
+
+/*
+    Pick a random available photo.
+*/
+
+function getRandomPhoto() {
+
+    const randomIndex =
+        Math.floor(
+            Math.random()
+            *
+            availablePhotos.length
+        );
+
+
+    return availablePhotos[
+        randomIndex
     ];
+}
 
 
-    /* =========================================
-       NO BUTTON MESSAGES
-    ========================================= */
+/*
+    Initial photo
+*/
 
-    const noMessages = [
-
-        "Interesting opinion. âœ¨",
-
-        "Hmm. Bold of you.",
-
-        "I respect your honesty. Not your answer.",
-
-        "That's certainly... an opinion.",
-
-        "Your answer has been noted. ðŸ‘€",
-
-        "I'm starting to think you're messing with me.",
-
-        "You cannot possibly be serious. ðŸ˜­",
-
-        "Okay, comedian. Very funny.",
-
-        "We both know that's not true.",
-
-        "Nice try. I know I'm cute.",
-
-        "At this point, you're just being difficult.",
-
-        "The confidence remains unshaken. âœ¨"
-
-    ];
+currentPhoto =
+    getRandomPhoto();
 
 
-    let noCount = 0;
+mainPhoto.src =
+    `${currentPhoto}.png`;
 
 
-    /* =========================================
-       YES BUTTON
-    ========================================= */
+/* =========================================
+   CHANGE MAIN PHOTO
+========================================= */
 
-    yesBtn.addEventListener("click", function () {
+function changeMainPhoto() {
 
-        mainCard.style.display = "none";
-
-        success.classList.add("show");
-
-        successPhoto.src = "32.png";
-
-    });
+    mainPhoto.classList.add(
+        "changing"
+    );
 
 
-    /* =========================================
-       RUNAWAY NO BUTTON
-    ========================================= */
+    setTimeout(function() {
 
-    function moveNoButton() {
-
-        noCount++;
-
-        const index =
-            Math.min(
-                noCount - 1,
-                noTexts.length - 1
-            );
-
-        const messageIndex =
-            Math.min(
-                noCount - 1,
-                noMessages.length - 1
-            );
+        let newPhoto;
 
 
-        noBtn.textContent =
-            noTexts[index];
+        /*
+            Try not to immediately
+            repeat the same photo.
+        */
 
-        message.textContent =
-            noMessages[messageIndex];
+        do {
 
+            newPhoto =
+                getRandomPhoto();
 
-        /* =====================================
-           MAKE YES BIGGER
-        ===================================== */
-
-        const yesScale =
-            Math.min(
-                1 + noCount * 0.12,
-                2.1
-            );
-
-        yesBtn.style.transform =
-            `scale(${yesScale})`;
+        }
+        while (
+            newPhoto === currentPhoto
+            &&
+            availablePhotos.length > 1
+        );
 
 
-        /* =====================================
-           MAKE NO SMALLER
-        ===================================== */
+        currentPhoto =
+            newPhoto;
 
-        const noScale =
-            Math.max(
-                1 - noCount * 0.07,
-                .55
-            );
+
+        mainPhoto.src =
+            `${currentPhoto}.png`;
+
+
+        mainPhoto.classList.remove(
+            "changing"
+        );
+
+
+    }, 250);
+
+}
+
+
+/*
+    Change photo every 5 seconds.
+*/
+
+setInterval(
+    changeMainPhoto,
+    5000
+);
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const yesBtn =
+    document.getElementById(
+        "yesBtn"
+    );
+
+
+const noBtn =
+    document.getElementById(
+        "noBtn"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+const buttons =
+    document.getElementById(
+        "buttons"
+    );
+
+
+const mainCard =
+    document.getElementById(
+        "mainCard"
+    );
+
+
+const success =
+    document.getElementById(
+        "success"
+    );
+
+
+const successPhoto =
+    document.getElementById(
+        "successPhoto"
+    );
+
+
+/* =========================================
+   NO BUTTON TEXT
+========================================= */
+
+const noTexts = [
+
+    "NO 🤨",
+
+    "Hmm...",
+
+    "Really?",
+
+    "Interesting.",
+
+    "Bold choice.",
+
+    "You sure?",
+
+    "Okay... 🤨",
+
+    "Noted.",
+
+    "Sure bestie.",
+
+    "Whatever 😌",
+
+    "Nice try.",
+
+    "Moving on ✨"
+
+];
+
+
+/* =========================================
+   NO BUTTON MESSAGES
+========================================= */
+
+const noMessages = [
+
+    "Interesting opinion. ✨",
+
+    "Hmm. Bold of you.",
+
+    "I respect your honesty. Not your answer.",
+
+    "That's certainly... an opinion.",
+
+    "Your answer has been noted. 👀",
+
+    "I'm starting to think you're messing with me.",
+
+    "You cannot possibly be serious. 😭",
+
+    "Okay, comedian. Very funny.",
+
+    "We both know that's not true.",
+
+    "Nice try. I know I'm cute.",
+
+    "At this point, you're just being difficult.",
+
+    "The confidence remains unshaken. ✨"
+
+];
+
+
+let noCount = 0;
+
+
+/* =========================================
+   YES BUTTON
+========================================= */
+
+yesBtn.addEventListener(
+    "click",
+    function() {
+
+
+        mainCard.style.display =
+            "none";
+
+
+        success.classList.add(
+            "show"
+        );
+
+
+        /*
+            Use an available PNG.
+            32.png exists, so it is safe.
+        */
+
+        successPhoto.src =
+            "32.png";
+
+    }
+);
+
+
+/* =========================================
+   MOVE NO BUTTON
+========================================= */
+
+function moveNoButton() {
+
+    noCount++;
+
+
+    /*
+        Text index
+    */
+
+    const textIndex =
+        Math.min(
+            noCount - 1,
+            noTexts.length - 1
+        );
+
+
+    /*
+        Message index
+    */
+
+    const messageIndex =
+        Math.min(
+            noCount - 1,
+            noMessages.length - 1
+        );
+
+
+    noBtn.textContent =
+        noTexts[textIndex];
+
+
+    message.textContent =
+        noMessages[messageIndex];
+
+
+    /* =====================================
+       YES GETS BIGGER
+    ===================================== */
+
+    const yesScale =
+        Math.min(
+            1 + noCount * .12,
+            2.1
+        );
+
+
+    yesBtn.style.transform =
+        `scale(${yesScale})`;
+
+
+    /* =====================================
+       NO GETS SMALLER
+    ===================================== */
+
+    const noScale =
+        Math.max(
+            1 - noCount * .07,
+            .55
+        );
+
+
+    /*
+        Before moving,
+        keep it normal.
+    */
+
+    if (noCount < 2) {
 
         noBtn.style.transform =
             `scale(${noScale})`;
 
-
-        /* =====================================
-           AFTER A FEW ATTEMPTS,
-           MAKE THE NO BUTTON MOVE
-        ===================================== */
-
-        if (noCount >= 2) {
-
-            const area =
-                buttons.getBoundingClientRect();
-
-            const button =
-                noBtn.getBoundingClientRect();
+    }
 
 
-            const maxX =
-                Math.max(
-                    20,
-                    area.width - button.width - 20
-                );
+    /* =====================================
+       MAKE NO RUN AWAY
+    ===================================== */
 
-            const maxY =
-                Math.max(
-                    20,
-                    area.height - button.height - 20
-                );
+    if (noCount >= 2) {
 
 
-            const x =
-                Math.random() * maxX -
-                maxX / 2;
-
-            const y =
-                Math.random() * maxY -
-                maxY / 2;
+        const area =
+            buttons.getBoundingClientRect();
 
 
-            noBtn.style.position =
-                "absolute";
-
-            noBtn.style.left =
-                "50%";
-
-            noBtn.style.top =
-                "50%";
-
-            noBtn.style.transform =
-                `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${noScale})`;
-        }
+        const button =
+            noBtn.getBoundingClientRect();
 
 
-        /* =====================================
-           AFTER MANY CLICKS
-        ===================================== */
+        const maxX =
+            Math.max(
+                20,
+                area.width -
+                button.width -
+                20
+            );
 
-        if (noCount >= 9) {
+
+        const maxY =
+            Math.max(
+                20,
+                area.height -
+                button.height -
+                20
+            );
+
+
+        const x =
+            Math.random()
+            *
+            maxX
+            -
+            maxX / 2;
+
+
+        const y =
+            Math.random()
+            *
+            maxY
+            -
+            maxY / 2;
+
+
+        noBtn.style.position =
+            "absolute";
+
+
+        noBtn.style.left =
+            "50%";
+
+
+        noBtn.style.top =
+            "50%";
+
+
+        noBtn.style.transform =
+            `
+            translate(
+                calc(-50% + ${x}px),
+                calc(-50% + ${y}px)
+            )
+            scale(${noScale})
+            `;
+
+    }
+
+
+    /* =====================================
+       AFTER MANY ATTEMPTS
+    ===================================== */
+
+    if (noCount >= 9) {
+
+        message.textContent =
+            "Fine. 😭 You really committed to the bit.";
+
+
+        noBtn.textContent =
+            "Okay then 🤨";
+
+    }
+
+}
+
+
+/* =========================================
+   DESKTOP HOVER
+========================================= */
+
+noBtn.addEventListener(
+    "mouseenter",
+    function() {
+
+
+        if (noCount === 0) {
 
             message.textContent =
-                "Fine. ðŸ˜­ You really committed to the bit.";
+                "Oh? We're doing this? 😌";
 
-            noBtn.textContent =
-                "Okay then ðŸ¤¨";
+        }
+
+
+        /*
+            Make it run after
+            the first hover.
+        */
+
+        if (noCount >= 1) {
+
+            moveNoButton();
 
         }
 
     }
+);
 
 
-    /* Desktop */
+/* =========================================
+   MOBILE TOUCH
+========================================= */
 
-    noBtn.addEventListener(
-        "mouseenter",
-        function () {
+noBtn.addEventListener(
+    "touchstart",
+    function(event) {
 
-            if (noCount >= 1) {
-                moveNoButton();
-            }
+        event.preventDefault();
 
-        }
+        moveNoButton();
+
+    },
+    {
+        passive: false
+    }
+);
+
+
+/* =========================================
+   CLICK
+========================================= */
+
+noBtn.addEventListener(
+    "click",
+    function() {
+
+        moveNoButton();
+
+    }
+);
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+function createFloatingHeart() {
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.textContent =
+        Math.random() > .5
+            ? "♡"
+            : "✦";
+
+
+    heart.style.position =
+        "fixed";
+
+
+    heart.style.left =
+        Math.random()
+        *
+        100
+        +
+        "vw";
+
+
+    heart.style.bottom =
+        "-30px";
+
+
+    heart.style.fontSize =
+        (
+            12 +
+            Math.random() * 18
+        )
+        +
+        "px";
+
+
+    heart.style.color =
+        Math.random() > .5
+            ? "rgba(118,84,107,.30)"
+            : "rgba(169,130,145,.35)";
+
+
+    heart.style.pointerEvents =
+        "none";
+
+
+    heart.style.zIndex =
+        "2";
+
+
+    document.body.appendChild(
+        heart
     );
 
 
-    /* Mobile / touch */
-
-    noBtn.addEventListener(
-        "touchstart",
-        function (event) {
-
-            event.preventDefault();
-
-            moveNoButton();
-
-        },
-        { passive: false }
-    );
+    const duration =
+        4000 +
+        Math.random() * 3500;
 
 
-    /* Click */
+    heart.animate(
 
-    noBtn.addEventListener(
-        "click",
-        function () {
-
-            moveNoButton();
-
-        }
-    );
-
-
-    /* =========================================
-       FIRST HOVER MESSAGE
-    ========================================= */
-
-    noBtn.addEventListener(
-        "mouseenter",
-        function () {
-
-            if (noCount === 0) {
-
-                message.textContent =
-                    "Oh? We're doing this? ðŸ˜Œ";
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       RANDOM FLOATING HEARTS
-    ========================================= */
-
-    function createFloatingHeart() {
-
-        const heart =
-            document.createElement("div");
-
-        heart.textContent =
-            Math.random() > .5
-                ? "â™¡"
-                : "âœ¦";
-
-        heart.style.position =
-            "fixed";
-
-        heart.style.left =
-            Math.random() * 100 + "vw";
-
-        heart.style.bottom =
-            "-30px";
-
-        heart.style.fontSize =
-            (12 + Math.random() * 18) + "px";
-
-        heart.style.color =
-            Math.random() > .5
-                ? "rgba(118,84,107,.30)"
-                : "rgba(169,130,145,.35)";
-
-        heart.style.pointerEvents =
-            "none";
-
-        heart.style.zIndex =
-            "2";
-
-        document.body.appendChild(heart);
-
-
-        const duration =
-            4000 + Math.random() * 3500;
-
-
-        heart.animate(
-
-            [
-                {
-                    transform:
-                        "translateY(0) rotate(0deg)",
-                    opacity: 0
-                },
-
-                {
-                    opacity: .7,
-                    offset: .15
-                },
-
-                {
-                    transform:
-                        `translateY(-${window.innerHeight + 100}px) rotate(180deg)`,
-                    opacity: 0
-                }
-            ],
+        [
 
             {
-                duration:
-                    duration,
+                transform:
+                    "translateY(0) rotate(0deg)",
 
-                easing:
-                    "ease-out"
+                opacity:
+                    0
+            },
+
+            {
+                opacity:
+                    .7,
+
+                offset:
+                    .15
+            },
+
+            {
+                transform:
+                    `
+                    translateY(
+                        -${window.innerHeight + 100}px
+                    )
+                    rotate(180deg)
+                    `,
+
+                opacity:
+                    0
             }
 
-        );
+        ],
 
+        {
 
-        setTimeout(
-            () => heart.remove(),
-            duration
-        );
-    }
+            duration:
+                duration,
 
+            easing:
+                "ease-out"
 
-    setInterval(
-        createFloatingHeart,
-        900
+        }
+
     );
+
+
+    setTimeout(
+        () => heart.remove(),
+        duration
+    );
+
+}
+
+
+setInterval(
+    createFloatingHeart,
+    900
+);
+
 
 </script>
 
